@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>メニュー</title>
+<link rel="stylesheet" type="text/css" href="nbcg.css">
+</head>
+<body onload="init();">
+<script type="text/javascript">
+<!--
+	//画面ロードの際に満室だったらボタンが押せないようにする
+	//TODO javaで操作する
+	function init() {
+		if(document.getElementById("num_player").innerHTML == 2) {
+			document.getElementById("button_player").disabled = "true";
+		}
+		
+		if(document.getElementById("num_dealer").innerHTML == 1) {
+			document.getElementById("button_dealer").disabled = "true";
+		}
+	}
+	
+	//プレイヤー参加ボタン押下後、参加人数が1増え以後ボタンは押せない
+	//TODO javaで操作する
+	function join_player() {
+		if(document.getElementById("num_player").innerHTML < 2) {
+			document.getElementById("num_player").innerHTML++;
+		}
+		document.getElementById("button_player").disabled = "true";
+		document.getElementById("button_dealer").disabled = "true";
+	}
+	
+	//ディーラー参加ボタン押下後、参加人数が1増え以後ボタンは押せない
+	//TODO javaで操作する
+	function join_dealer() {
+		if(document.getElementById("num_dealer").innerHTML < 1) {
+			document.getElementById("num_dealer").innerHTML++;
+		}
+		document.getElementById("button_player").disabled = "true";
+		document.getElementById("button_dealer").disabled = "true";
+	}
+	
+	//キャンセルボタン押下後、参加人数が1減りボタン復活
+	//TODO javaで操作する
+	function cancel() {
+		if(document.getElementById("num_player").innerHTML > 0) {
+			document.getElementById("num_player").innerHTML--;
+		}
+		
+		if(document.getElementById("num_dealer").innerHTML > 0) {
+			document.getElementById("num_dealer").innerHTML--;
+		}
+		
+		document.getElementById("button_player").disabled = "";
+		document.getElementById("button_dealer").disabled = "";
+	}
+	
+	//TODO 埋まったらalert("スタートします");
+// -->
+</script>
+<!-- ヘッダー -->
+<p align="center"><img src="top.jpg" alt="トップページ" /><br>ver 0.00</p>
+
+<table border="3" align="center">
+	<tr>
+		<td><button id="button_player" style="width:100%;" onclick="join_player();">プレイヤーとして参加</button></td>
+		<td>(<span id="num_player">0</span>/2)</td>
+	</tr>
+	<tr>
+		<td><button id="button_dealer" style="width:100%;" onclick="join_dealer();">ディーラーとして参加</button></td>
+		<td>(<span id="num_dealer">0</span>/1)</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><button onclick="cancel();">キャンセル</button></td>
+	</tr>
+</table>
+
+</body>
+</html>
