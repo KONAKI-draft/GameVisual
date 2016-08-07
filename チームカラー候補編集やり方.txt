@@ -1,0 +1,11 @@
+チームカラー編集手順書
+	2016.8.7 sugar191
+
+1.playerSelectTeamColor.htmlを開く
+2.18行目の<select align="center">の下に、以下の文を追加する
+  <option value="[値(文字・数字なんでもよい。識別するためのもの)]">[チームカラー名]</option>
+  なお、サンプルとして以下3つのチームカラーがあるので、それに倣って書いていただきたい。
+  サンプルは消してもらって構わない。
+  <option value="000">攻撃型</option>
+  <option value="001">守備型</option>
+  <option value="002">若手主義</option>
