@@ -1,17 +1,63 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>結果発表</title>
+<title>ドラフト評価</title>
 <link rel="stylesheet" type="text/css" href="nbcg.css">
 </head>
 <script type="text/javascript">
 <!--
+	//0～100以外の値が入力されたら、エラー
+	function checkScore() {
+		var flag = true;
+		if (document.getElementById("scoreDraftA").value == "" || document.getElementById("scoreDraftB").value == "" 
+			|| document.getElementById("scoreColorA").value == "" || document.getElementById("scoreColorB").value == "") {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreDraftA").value < 0 || document.getElementById("scoreDraftA").value > 100) {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreDraftB").value < 0 || document.getElementById("scoreDraftB").value > 100) {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreColorA").value < 0 || document.getElementById("scoreColorA").value > 100) {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreColorB").value < 0 || document.getElementById("scoreColorB").value > 100) {
+			flag = false;
+		}
+		
+		if (flag == false) {
+			alert("0～100の整数を入力してください");
+		
+		} else {
+			//TODO 点数をFORMに送信
+			location.href = "result.html";
+		}
+	}
+	
+	// 数値のみを入力可能にする
+	function numOnly() {
+		m = String.fromCharCode(event.keyCode);
+		if("0123456789\b\r".indexOf(m, 0) < 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	function init() {
+		//TODO javaでFORMで受け取る
+		document.getElementById("teamColorA").value = "2003年優勝チーム"
+		document.getElementById("teamColorB").value = "メモリアル打線"
+	}
 // -->
 </script>
 <!-- ヘッダー -->
 <body onload="init();">
 <p align="center"><img src="top.jpg" alt="トップページ" /><br>ver 0.00</p>
-<p align="center">結果発表！！！</p>
 <table align="center">
 	<tr>
 		<!-- チームA部 -->
@@ -19,6 +65,9 @@
 			<table>
 				<tr>
 					<th colspan="2">プレイヤーＡ</th>
+				</tr>
+				<tr>
+					<td colspan="2">チームカラー<input type="text" id="teamColorA" name="teamColorA" disabled="disabled" ></td>
 				</tr>
 				<tr>
 					<td valign="top">
@@ -102,6 +151,9 @@
 					<th colspan="2">プレイヤーＢ</th>
 				</tr>
 				<tr>
+					<td colspan="2">チームカラー<input type="text" id="teamColorB" name="teamColorB" disabled="disabled" ></td>
+				</tr>
+				<tr>
 					<td valign="top">
 						<table border="1">
 							<tr>
@@ -177,44 +229,35 @@
 			</table>
 		</td>
 	</tr>
-	<!-- スコア部 -->
+	<!-- スコア評価部 -->
 	<!-- TODO javaで計算 -->
 	<tr>
 		<td>
 			<table>
 				<tr>
-					<td>ドラフト</td>
-					<td><span id="scoreDraft_A">100</span>点</td>
+					<td>ドラフト評価</td>
+					<td><input type="text" id="scoreDraftA" name="scoreDraftA" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
 				</tr>
 				<tr>
-					<td>チーム</td>
-					<td><span id="scoreTeam_A">100</span>点</td>
-				</tr>
-				<tr>
-					<td>総合</td>
-					<td><span id="scoreTotal_A">200</span>点</td>
+					<td>チームカラー評価</td>
+					<td><input type="text" id="scoreColorA" name="scoreColorA" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
 				</tr>
 			</table>
 		</td>
 		<td>
 			<table>
 				<tr>
-					<td>ドラフト</td>
-					<td><span id="scoreDraft_B">0</span>点</td>
+					<td>ドラフト評価</td>
+					<td><input type="text" id="scoreDraftB" name="scoreDraftB" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
 				</tr>
 				<tr>
-					<td>チーム</td>
-					<td><span id="scoreTeam_B">0</span>点</td>
-				</tr>
-				<tr>
-					<td>総合</td>
-					<td><span id="scoreTotal_B">0</span>点</td>
+					<td>チームカラー評価</td>
+					<td><input type="text" id="scoreColorB" name="scoreColorB" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 </table>
-<br>
-<p align="center"><a href="logon.html"><button class="top" >終</button></a></p>
+<p align="center"><button onclick="checkScore();">決定</button></p>
 </body>
 </html>
