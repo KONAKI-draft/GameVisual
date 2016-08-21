@@ -1,0 +1,263 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ドラフト評価</title>
+<link rel="stylesheet" type="text/css" href="nbcg.css">
+</head>
+<script type="text/javascript">
+<!--
+	//0～100以外の値が入力されたら、エラー
+	function checkScore() {
+		var flag = true;
+		if (document.getElementById("scoreDraftA").value == "" || document.getElementById("scoreDraftB").value == "" 
+			|| document.getElementById("scoreColorA").value == "" || document.getElementById("scoreColorB").value == "") {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreDraftA").value < 0 || document.getElementById("scoreDraftA").value > 100) {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreDraftB").value < 0 || document.getElementById("scoreDraftB").value > 100) {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreColorA").value < 0 || document.getElementById("scoreColorA").value > 100) {
+			flag = false;
+		}
+		
+		if (document.getElementById("scoreColorB").value < 0 || document.getElementById("scoreColorB").value > 100) {
+			flag = false;
+		}
+		
+		if (flag == false) {
+			alert("0～100の整数を入力してください");
+		
+		} else {
+			//TODO 点数をFORMに送信
+			location.href = "result.html";
+		}
+	}
+	
+	// 数値のみを入力可能にする
+	function numOnly() {
+		m = String.fromCharCode(event.keyCode);
+		if("0123456789\b\r".indexOf(m, 0) < 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	function init() {
+		//TODO javaでFORMで受け取る
+		document.getElementById("teamColorA").value = "2003年優勝チーム"
+		document.getElementById("teamColorB").value = "メモリアル打線"
+	}
+// -->
+</script>
+<!-- ヘッダー -->
+<body onload="init();">
+<p align="center"><img src="top.jpg" alt="トップページ" /><br>ver 0.00</p>
+<table align="center">
+	<tr>
+		<!-- チームA部 -->
+		<td>
+			<table>
+				<tr>
+					<th colspan="2">プレイヤーＡ</th>
+				</tr>
+				<tr>
+					<td colspan="2">チームカラー<input type="text" id="teamColorA" name="teamColorA" disabled="disabled" ></td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<table border="1">
+							<tr>
+								<th colspan="3">野手</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>二</td>
+								<td width="100">今岡</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>中</td>
+								<td width="100">赤星</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>左</td>
+								<td width="100">金本</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>指</td>
+								<td width="100">濱中</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>右</td>
+								<td width="100">桧山</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>一</td>
+								<td width="100">アリアス</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>三</td>
+								<td width="100">片岡</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>捕</td>
+								<td width="100">矢野</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>遊</td>
+								<td width="100">藤本</td>
+							</tr>
+						</table>
+					</td>
+					<td valign="top">
+						<table border="1">
+							<tr>
+								<th colspan="2">投手</th>
+							</tr>
+							<tr>
+								<td>先</td>
+								<td width="100">井川</td>
+							</tr>
+							<tr>
+								<td>中</td>
+								<td width="100">安藤</td>
+							</tr>
+							<tr>
+								<td>抑</td>
+								<td width="100">ウィリアムス</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<!-- チームB部 -->
+		<td>
+			<table>
+				<tr>
+					<th colspan="2">プレイヤーＢ</th>
+				</tr>
+				<tr>
+					<td colspan="2">チームカラー<input type="text" id="teamColorB" name="teamColorB" disabled="disabled" ></td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<table border="1">
+							<tr>
+								<th colspan="3">野手</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>二</td>
+								<td width="100">仁志</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>左</td>
+								<td width="100">清水</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>右</td>
+								<td width="100">高橋由</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>中</td>
+								<td width="100">松井秀</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>一</td>
+								<td width="100">清原</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>指</td>
+								<td width="100">マルティネス</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>三</td>
+								<td width="100">江藤</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>遊</td>
+								<td width="100">二岡</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>捕</td>
+								<td width="100">村田真</td>
+							</tr>
+						</table>
+					</td>
+					<td valign="top">
+						<table border="1">
+							<tr>
+								<th colspan="2">投手</th>
+							</tr>
+							<tr>
+								<td>先</td>
+								<td width="100">上原</td>
+							</tr>
+							<tr>
+								<td>中</td>
+								<td width="100">岡島</td>
+							</tr>
+							<tr>
+								<td>抑</td>
+								<td width="100">槙原</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<!-- スコア評価部 -->
+	<!-- TODO javaで計算 -->
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td>ドラフト評価</td>
+					<td><input type="text" id="scoreDraftA" name="scoreDraftA" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
+				</tr>
+				<tr>
+					<td>チームカラー評価</td>
+					<td><input type="text" id="scoreColorA" name="scoreColorA" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td>ドラフト評価</td>
+					<td><input type="text" id="scoreDraftB" name="scoreDraftB" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
+				</tr>
+				<tr>
+					<td>チームカラー評価</td>
+					<td><input type="text" id="scoreColorB" name="scoreColorB" size="4" maxlength="3" onkeyDown="return numOnly()">点</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<p align="center"><button onclick="checkScore();">決定</button></p>
+</body>
+</html>
